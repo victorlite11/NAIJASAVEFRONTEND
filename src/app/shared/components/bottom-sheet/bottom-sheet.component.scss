@@ -1,0 +1,79 @@
+section.bottom-sheet {
+    min-height: 20em;
+    width: 100%;
+    border-radius: .8em .8em 0 0;
+    position: fixed;
+    padding: .7em;
+    background-color: #f9fbfdf5;
+
+    bottom: -290px;
+
+    animation: desue 1s ease-in-out alternate;
+
+    transition: all 1s ease-in-out;
+
+    *:not(.close-icon) {
+        font-family: raleway-light;
+    }
+
+    .close-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: .9em;
+        color: #f55f5f;
+        font-size: 1.2em;
+    }
+
+    p.heading {
+        font-size:  1.4em;
+    }
+
+    p.description {
+        font-size: .9em;
+    }
+
+    p.footnote {
+        font-family: source-sans-pro-light-italics;
+        font-size: .8em;
+    }
+
+    button {
+        margin: .7em;
+        outline: none;
+        font-family: source-sans-pro-light;
+    }
+}
+
+@keyframes ensue {
+    0% {
+        bottom: -290px !important; 
+    }
+
+    100% {
+        bottom: 0px !important; 
+    }
+}
+
+.ensue {
+    animation: ensue 2s ease-in-out alternate;
+    bottom: 0px !important;
+    display: flex;
+}
+
+// for remove sheet from view
+.desue {
+    animation: desue 2s ease-in-out alternate;
+    bottom: -290px !important;
+    display: none;
+}
+
+@keyframes desue {
+    0% {
+        bottom: 0px !important; 
+    }
+
+    100% {
+        bottom: -290px !important; 
+    }
+}

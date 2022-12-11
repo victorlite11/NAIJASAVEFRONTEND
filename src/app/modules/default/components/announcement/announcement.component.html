@@ -1,0 +1,13 @@
+<app-header [title]="'Notifications'"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="fetchingAnnouncements" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section *ngFor="let announcement of announcements">
+        <app-announcement-card [title]="announcement.title" 
+                                [body]="announcement.body" 
+                                [date]="announcement.date"></app-announcement-card>
+    </section>
+
+</main>
+<app-footer></app-footer>

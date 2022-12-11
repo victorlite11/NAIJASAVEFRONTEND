@@ -1,0 +1,32 @@
+<app-header [title]="'Subordinates'"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="countingSubordinates" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+      <p class="key-value-text"><span>Total Subordinates:</span> <span>{{totalSubordinates}}</span></p>
+  </section>
+
+  <section class="toolbar d-flex align-items-center">
+        
+    <a class="clickable p-2 rounded shadow-sm" (click)="openSearchPortal()">Search</a>
+    <a class="clickable coral p-2 rounded shadow-sm m-1" (click)="navigateToAssignSubordinatesPortal()">Assign Subordinates</a>
+    <a class="clickable coral p-2 rounded shadow-sm" (click)="addContributor()">Register contributor</a>
+  </section>
+
+    <section *ngIf="contributor.identity!!.isSuperContributor" (click)="openSubContributors()" class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Sub Contributors</span>
+        <span class="p-2 d-flex align-items-center">{{subContributorsCount}}  <i class="pi pi-arrow-right ml-2 pl-2"></i></span>
+    </section>
+
+    <section (click)="openInvestors()" class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Investors</span>
+        <span class="p-2 d-flex align-items-center">{{investorsCount}}  <i class="pi pi-arrow-right ml-2 pl-2"></i></span>
+    </section>
+
+    <section (click)="openContributors()" class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+      <span class="p-2">Contributors</span>
+      <span class="p-2 d-flex align-items-center">{{contributorsCount}}  <i class="pi pi-arrow-right ml-2 pl-2"></i></span>
+  </section>
+</main>
+<app-footer></app-footer>

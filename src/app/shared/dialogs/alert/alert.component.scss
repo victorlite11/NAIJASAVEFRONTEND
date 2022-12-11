@@ -1,0 +1,53 @@
+section.alert {
+    position: fixed;
+    padding: 1.5em;
+    top: -90px;
+
+    animation: ensue 5s ease-in-out alternate;
+
+    transition: all  5s ease-in-out;
+
+    * {
+     font-family: source-sans-pro-light; 
+     color: white;  
+    }
+    
+}
+
+.error {
+    background-color: #f55f5fef;
+}
+
+.success {
+    background-color: #70c27ee3;
+}
+
+@keyframes ensue {
+    0% {
+        top: -90px; 
+    }
+
+    25% {
+        top: 0px;
+    }
+
+    50% {
+        top: 0px;
+    }
+
+    75% {
+        top: 0px;
+    }
+
+    100% {
+        top: -90px;
+    }
+}
+
+.danger-text {
+    color: #f55f5f !important;
+}
+
+.primary-text {
+    color: #389FF4 !important;
+}

@@ -1,0 +1,125 @@
+<app-header [title]="'Personal Data'"></app-header>
+
+<main class="body shadow pull-up-3">
+  <div fxLayout='column' *ngIf="fetchingPersonalData" fxLayoutAlign="center center" class='spinner-container'>
+    <mat-spinner [diameter]="20" mode="indeterminate"></mat-spinner>
+  </div>
+
+    <!--- Basic Information -->
+    <div class="shadow-sm">
+      <p>Personal Information</p>
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Name</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.basicInformation!!.name}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Username</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.credentials!!.username}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Phone Number</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.credentials!!.phoneNumber}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Email</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.credentials!!.email}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">DOB</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.basicInformation!!.dateOfBirth}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Gender</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.basicInformation!!.gender}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Next of Kin</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.basicInformation!!.nextOfKin}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Overseer</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.basicInformation!!.overseerId}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Referrer Code</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.basicInformation!!.referralCode}}</span>
+      </section>
+    </div>
+
+    <!--- Address Information -->
+    <div class="shadow-sm">
+      <p>Address Detail</p>
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Nationality</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.location!!.country}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">State</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.location!!.state}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">LGA</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.location!!.localGovernment}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Address</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.location!!.address}}</span>
+      </section>
+    </div>
+
+    <!-- Account details-->
+    <div class="shadow-sm">
+      <p>Account Details</p>
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Daily Savings</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.account!!.dailySavings}}NGN</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Account Number</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.account!!.bankDetails!!.accountNumber}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Account Name</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.account!!.bankDetails!!.name}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Bank</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.account!!.bankDetails!!.bankName}}</span>
+      </section>
+    </div>
+
+    <!-- Others-->
+    <div class="shadow-sm">
+      <p>Others</p>
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Account Registration</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.activities!!.regDate}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Registration Approval</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.activities!!.approvalDate}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Account Status</span>
+        <span class="p-2 d-flex align-items-center">{{contributor.activities!!.status}}</span>
+      </section>
+    </div>
+
+</main>
+<app-footer></app-footer>

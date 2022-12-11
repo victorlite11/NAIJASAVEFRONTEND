@@ -1,0 +1,23 @@
+<app-header [title]="title"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="fetchingSubordinates" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+      <p class="key-value-text"><span>{{name}}:</span> <span>{{subordinates.length}}</span></p>
+  </section>
+
+  <section class="toolbar d-flex align-items-center">
+    <a class="clickable p-2 rounded shadow-sm" (click)="openSearchPortal()">Search</a>
+    <span class="m-1"></span>
+    <a class="clickable coral p-2 rounded shadow-sm" (click)="addContributor()">Register contributor</a>
+  </section>
+
+  <div *ngFor="let subordinate of subordinates">
+    <app-subordinate-card [name]="subordinate.basicInformation!!.name" 
+                [phoneNumber]="subordinate.credentials!!.phoneNumber"
+                [status]="subordinate.activities!!.status"
+                [subordinate_id]="subordinate._id"></app-subordinate-card>
+  </div>
+</main>
+<app-footer></app-footer>

@@ -1,0 +1,25 @@
+<app-header [title]="'Subordinates'"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="fetchingAssignableSubordinates" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+      <p class="key-value-text"><span>Total Subordinates:</span> <span>{{assignableSubordinates.length}}</span></p>
+    </section>
+
+    <section class="toolbar d-flex align-items-center">
+        
+        <a *ngIf="assigningList.length > 0" class="clickable coral p-2 rounded shadow-sm" (click)="assignSelectedSubordinates()">Assign Selected Subordinates</a>
+    
+    </section>
+
+    <section class="subordinate-card d-flex flex-column" *ngFor="let subordinate of assignableSubordinates" (click)="addToAssigningList(subordinate._id!!, mark)">
+        <!-- check -->
+        <i class="pi pi-check check-icon text-right align-self-end justify-self-end d-none" #mark style="font-size: .9rem"></i>
+        <app-subordinate-card [name]="subordinate.name" 
+        [phoneNumber]="subordinate.phoneNumber"
+        [status]="subordinate.status"></app-subordinate-card>
+    </section>
+
+</main>
+<app-footer></app-footer>

@@ -1,0 +1,31 @@
+<app-header [title]="'Conversations'"></app-header>
+
+<main class="body shadow pull-up-3">
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+        <mat-radio-group [(ngModel)]="interest">
+            <mat-radio-button value="admin" class="margin-right-point-5em">Admin</mat-radio-button>
+            <mat-radio-button value="overseer" class="margin-right-point-5em">Overseer</mat-radio-button>
+            <mat-radio-button *ngIf="thereIsFor" value="subordinate">Subordinate</mat-radio-button>
+        </mat-radio-group>
+    </section>
+
+    <section>
+        <div class="d-flex column occupy" *ngFor="let chat of chats">
+            <span *ngIf="chat.from != contributor._id" class="m-1 text-wrap p-2 shadow-sm rounded primary-text align-self-start w-50">{{chat.message}}</span>
+            <span *ngIf="chat.from == contributor._id" class="m-1 text-wrap p-2 shadow-sm rounded align-self-end w-50">{{chat.message}}</span>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="d-flex fixed-bottom m-2 align-items-center">
+            <textarea [(ngModel)]="chat.message" placeholder="Type message..." class="w-100 shadow text-box p-2 mr-1"></textarea>
+            <button (click)="send()" class="main-btn d-flex align-items-center justify-content-center align-self-end justify-self-end shadow" type="submit">Send <i class="pi pi-arrow-right ml-2 pl-2"></i></button>
+        </div>
+    </section>
+
+</main>
+<app-footer></app-footer>
+
+

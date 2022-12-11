@@ -1,0 +1,44 @@
+.header {
+    height: 13em;
+}
+.top-bar {
+    height: 3em;
+}
+
+ul li {
+    list-style: none;
+}
+
+.head {
+    font-size: 1.5em;
+}
+
+.hello {
+    border: 1px solid green;
+}
+
+.account-type-container {
+    border: 1px solid rgba(255, 255, 255, 0.568);
+    border-radius: .3em;
+}
+
+.balance {
+    font-size: 1.9em;
+}
+
+.user-name {
+    color: white;
+    font-size: 1.2em;
+}
+
+
+.balance-text {
+    font-size: .8em;
+}
+
+.image {
+    height: 4em;
+    width:  4em;
+    background-color: yellow;
+    border-radius: 100%;
+}

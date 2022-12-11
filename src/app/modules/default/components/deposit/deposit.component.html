@@ -1,0 +1,76 @@
+<!-- alert -->
+<app-alert [message]="feedback" [type]="type" *ngIf="feedback != ''"></app-alert>
+
+<app-header [title]="'Deposit'"></app-header>
+
+<main class="body shadow pull-up-3">
+
+    <form [formGroup]="form" class="forms-input-container mt-4">
+
+        <!-- Amount -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Amount</label>
+
+            <section class="input-container d-flex align-items-center">
+               <input formControlName="deposit" type="number" class="input flex-grow-1" placeholder="How much?" />
+            </section>
+
+            <a class="clickable justify-self-end align-self-end text-right">NGN</a>
+        </section>
+
+        <!-- Depositor name -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Name</label>
+
+            <section class="input-container d-flex align-items-center">
+               <input formControlName="name" class="input flex-grow-1" placeholder="Ex: Edicha Joshua" />
+            </section>
+        </section>
+
+        <!-- Statement -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Statement</label>
+
+            <section class="input-container d-flex align-items-center">
+               <input formControlName="statement" type="text" class="input flex-grow-1" placeholder="Ex: My daily deposit" />
+            </section>
+
+            <a class="clickable justify-self-end align-self-end text-right">Should be simple & descriptive</a>
+        </section>
+
+        <!-- Date -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Date</label>
+
+            <section class="input-container d-flex align-items-center">
+              <mat-form-field class="w-100 no-border">
+                <input (change)="reconstructDate()" formControlName="transactionDate" placeholder="Ex: 2/5/2021" matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </section>
+
+            <a class="clickable justify-self-end align-self-end text-right">{{readableDate}}</a>
+        </section>
+
+        <!-- Purpose -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Purpose</label>
+
+            <section class="input-container d-flex align-items-center">
+                <mat-radio-group formControlName="purpose">
+                    <mat-radio-button value="DailySavings">Daily Savings</mat-radio-button>
+                </mat-radio-group>
+            </section>
+
+        </section>
+    </form>
+
+    <mat-spinner [diameter]="20" *ngIf="depositing" mode="indeterminate" class="align-self-center justify-self-center"></mat-spinner>
+
+    <!-- deposit button -->
+    <button [disabled]="form.invalid" class="main-btn d-flex align-items-center justify-content-center align-self-end justify-self-end shadow mt-3" (click)="deposit()">Deposit <i class="pi pi-arrow-right ml-2 pl-2"></i></button>
+
+</main>
+<app-bottom-sheet [data]="bottomSheetData" #bottomSheet></app-bottom-sheet>
+<app-footer></app-footer>

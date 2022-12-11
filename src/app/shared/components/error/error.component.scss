@@ -1,0 +1,16 @@
+.error-container {
+    border-radius: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3em;
+    text-align: center;
+    margin: 0.2em;
+    transition: all 4s ease-in-out;
+}
+
+.error-message {
+    font-size: 1.1em;
+    color: rgb(219, 8, 8);
+    font-family: raleway-light;
+}

@@ -1,0 +1,183 @@
+<!-- alert -->
+<app-alert [message]="feedback" [type]="type" *ngIf="feedback != ''"></app-alert>
+
+
+<app-header [title]="'Register New Contributor'"></app-header>
+
+
+<main class="body shadow pull-up-3">
+
+    <form [formGroup]="form" class="forms-input-container mt-4">
+
+        <!-- Phone Number -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Phone Number</label>
+
+            <section class="input-container d-flex align-items-center">
+               <input formControlName="phoneNumber" type="tel" class="input flex-grow-1" placeholder="Ex : 08155909541" />
+            </section>
+
+            <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['phoneNumber'].errors?.required">This field is mandatory</a>
+            <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['phoneNumber'].errors?.minlength">Invalid phone number provided (must be 11 digits)</a>
+        </section>
+
+        <!-- Email -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Email [Optional]</label>
+
+            <section class="input-container d-flex align-items-center">
+               <input formControlName="email" type="email" class="input flex-grow-1" placeholder="Ex : someone@gmail.com" />
+            </section>
+
+        </section>
+
+        <!-- Account type -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Account Type</label>
+
+            <section class="input-container d-flex align-items-center">
+                <mat-radio-group formControlName="accountType">
+                  <mat-radio-button value="contributor">Contributor</mat-radio-button>
+                  <mat-radio-button value="investor">Investor</mat-radio-button>
+                </mat-radio-group>
+            </section>
+        </section>
+
+        <!-- Password -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Password</label>
+
+            <section class="input-container d-flex align-items-center">
+               <input formControlName="password" type="password" class="input flex-grow-1" placeholder="Ex : edy7hse3t42" />
+            </section>
+
+
+            <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['password'].errors?.required">This field is mandatory</a>
+            <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['password'].errors?.minlength">Mininum of 6 characters required</a>
+        </section>
+
+        <!-- Full Name -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Full Name</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="name" type="text" class="input flex-grow-1" placeholder="Ex : Edicha Joshua" />
+          </section>
+
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['name'].errors?.required">This field is mandatory</a>
+        </section>
+
+        <!-- Gender -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Gender</label>
+
+            <section class="input-container d-flex align-items-center">
+              <mat-radio-group formControlName="gender">
+                <mat-radio-button value="male" class="margin-right-point-5em">Male</mat-radio-button>
+                <mat-radio-button value="female" class="margin-right-point-5em">Female</mat-radio-button>
+                <mat-radio-button value="other">Other</mat-radio-button>
+              </mat-radio-group>
+            </section>
+        </section>
+
+        <!-- Date -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+            <label class="label">Date of Birth</label>
+
+            <section class="input-container d-flex align-items-start">
+              <mat-form-field class="w-100 no-border">
+                <input formControlName="dateOfBirth" matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </section>
+
+            <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['dateOfBirth'].errors?.required">This field is mandatory</a>
+
+        </section>
+
+        <!-- Next of Kin -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Next of Kin</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="nextOfKin" type="text" class="input flex-grow-1" placeholder="Ex : Joshua Philip" />
+          </section>
+
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['nextOfKin'].errors?.required">This field is mandatory</a>
+        </section>
+
+        <!-- Nationality -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Nationality</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="nationality" type="text" class="input flex-grow-1" placeholder="Ex : Nigerian" />
+          </section>
+
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['nationality'].errors?.required">This field is mandatory</a>
+        </section>
+
+        <!-- State -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">State</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="state" type="text" class="input flex-grow-1" placeholder="Ex : Lagos" />
+          </section>
+
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['state'].errors?.required">This field is mandatory</a>
+        </section>
+
+        <!-- LGA -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">LGA</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="localGovernment" type="text" class="input flex-grow-1" placeholder="Local Govt. of Origin" />
+          </section>
+
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['localGovernment'].errors?.required">This field is mandatory</a>
+        </section>
+
+        <!-- Address -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Address</label>
+
+          <section class="input-container d-flex align-items-center">
+             <textarea formControlName="address" type="text" class="input no-border flex-grow-1" placeholder="Please provide your residential address"></textarea>
+          </section>
+
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['address'].errors?.required">This field is mandatory</a>
+        </section>
+
+        <!-- DailySavings -->
+        <section *ngIf="form.value.accountType == 'contributor'" class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">How much will you be saving per day?</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="dailySavings" type="number" class="input flex-grow-1" placeholder="Please provide intended amount" />
+          </section>
+
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['dailySavings'].errors?.required">This field is mandatory</a>
+          <a class="clickable danger-text  justify-self-end align-self-end text-right" *ngIf="form.controls['dailySavings'].errors?.min">You can only save minimum of N100 daily</a>
+        </section>
+
+        <!-- Referral code -->
+        <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Referral Code</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="referrer" type="text" class="input flex-grow-1" placeholder="Provide referral code if any" />
+          </section>
+        </section>
+
+        <mat-spinner [diameter]="20" *ngIf="adding" mode="indeterminate" class="align-self-center justify-self-center"></mat-spinner>
+
+        <!-- register button -->
+        <button [disabled]="form.invalid" class="main-btn d-flex align-items-center justify-content-center align-self-end justify-self-end shadow mt-3" (click)="submit()">Register <i class="pi pi-arrow-right ml-2 pl-2"></i></button>
+
+    </form>
+
+</main>
+<app-footer></app-footer>

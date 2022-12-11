@@ -1,0 +1,20 @@
+<section class="bottom-sheet shadow d-flex align-items-center justify-content-center flex-column" #sheet>
+
+    <!-- Close icon -->
+    <i class="pi pi-times close-icon" (click)="closeSheet()"></i>
+
+    <p class="heading text-center" *ngIf="data.heading.text.length > 0" [ngStyle]="{'color': data.heading.color || '#000000'}">{{data.heading.text}}</p>
+    <p class="description text-center" *ngIf="data.description && data.description!!.text.length > 0" [ngStyle]="{'color': data.description!!.color || '#000000'}">{{data.description!!.text}}</p>
+
+    <section class="buttons-section d-flex" *ngIf="data.buttons && data.buttons.length > 0">
+        <button 
+        class="main-btn d-flex align-items-center justify-content-center mr-5 align-self-end justify-self-end shadow mt-3" 
+        *ngFor="let button of data.buttons" 
+        [ngStyle]="{'background-color': button.bgColor}"
+        (click)="button.onClick()">
+            {{button.name}} <i class="pi pi-money ml-2 pl-2"></i>
+        </button>
+    </section>
+ 
+    <p class="footnote text-center" *ngIf="data.footnote && data.footnote!!.text.length > 0" [ngStyle]="{'color': data.footnote!!.color || '#000000'}">{{data.footnote!!.text}}</p>
+</section>

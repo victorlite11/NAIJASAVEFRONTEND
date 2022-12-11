@@ -1,0 +1,18 @@
+p {
+    font-family: source-sans-pro-light
+}
+
+.styled-link {
+    font-size: 1em;
+    cursor: pointer;
+    text-align: end;
+    font-family: source-sans-pro-regular;
+    text-decoration: none;
+    color : #f55f5fd2;
+    padding: .8em;
+}
+
+.no-border {
+    outline: none;
+    border: none;
+}

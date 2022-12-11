@@ -1,0 +1,60 @@
+<header id="header">
+    <!-- Toolbar -->
+    <section class="toolbar d-flex align-items-center justify-content-between">
+      <!-- Contributor Details-->
+      <!-- Contributor Details-->
+      <section class="contributor-details d-flex align-items-center justify-content-start">
+
+        <!-- back arrow -->
+        <i class="pi pi-arrow-left notifications-icon" style="font-size: 1.1rem" (click)="moveBack()"></i>
+  
+        <!-- page details -->
+        <section class="d-flex align-self-center justify-content-center">
+          <p class="contributor">
+            <span class="title pb-1">{{title}}</span>
+          </p>
+        </section>
+      </section>
+  
+  
+      <section class="aside d-flex">
+        <!-- Notifications -->
+        <i class="pi pi-ellipsis-v notifications-icon" style="font-size: 1.1rem"></i>
+      </section>
+  
+  
+    </section>
+  
+    <!-- search board -->
+    <section class="balance-board d-flex flex-column align-items-center justify-content-center">
+      <p class="heading">Search</p>
+
+      <section class="form-field d-flex shadow-sm flex-column p-2">
+        <section class="input-container d-flex align-items-center">
+           <input type="text" [(ngModel)]="searchKeywords" class="input flex-grow-1 text-dark" placeholder="Type here..." />
+        </section>
+
+        <a class="clickable justify-self-end align-self-end text-right text-dark border rounded pr-3 pl-3" (click)="search()">Search</a>
+      </section>
+
+    </section>
+  
+  </header>
+  
+  <main class="body shadow pull-up-5">
+    <section class="flexed align-items-center justify-content-center padding-point-8em">
+        <mat-spinner *ngIf="searching" [diameter]="20" mode="indeterminate"></mat-spinner>
+    </section>
+    <section *ngIf="!searchResult" class="mt-5">
+        <p class="text-center no-search-result-placeholder">Search results appears here</p>
+    </section>
+    <section *ngIf="searchResult" class="mt-5">
+        <div *ngFor="let result of searchResult">
+            <app-subordinate-card [destination]="destination.destination" [name]="result.basicInformation!!.name" 
+                        [phoneNumber]="result.credentials!!.phoneNumber"
+                        [status]="result.activities!!.status"
+                        [subordinate_id]="result._id"></app-subordinate-card>
+        </div>
+    </section>
+  </main>
+  <app-footer></app-footer>

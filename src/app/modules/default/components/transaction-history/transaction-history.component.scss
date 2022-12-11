@@ -1,0 +1,17 @@
+table {
+    tr {
+        * {
+            font-family: source-sans-pro-light;
+        }
+    }
+}
+
+a.clickable {
+    font-size: .9em;
+    cursor: pointer;
+    text-align: end;
+    font-family: source-sans-pro-regular;
+    text-decoration: none;
+    color : #f55f5fd2;
+    padding: .8em;
+}

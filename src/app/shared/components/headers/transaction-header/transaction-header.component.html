@@ -1,0 +1,29 @@
+<header class='header background-blue big-grey-shadow curved-bottom-point-9em d-flex flex-column occupy no-padding align-items-start justify-content-between'>
+    <div class="top-bar d-flex occupy no-margin padding-point-5em justify-content-between align-items-center">
+        <div class="d-flex no-padding align-items-center">
+            <button class="color-white" mat-icon-button (click)="moveBack()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <span class='head color-white'>{{title}}</span>
+        </div>
+        <ul fxLayout='row' fxLayoutGap='20px'>
+            <li>
+                <button class="color-white mt-2 pt-2" mat-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="signOut()">
+                            <mat-icon>exit_to_app</mat-icon>
+                            Sign out
+                        </button>
+                    </mat-menu>
+            </li>
+        </ul>
+    </div>
+
+    <!-- balance -->
+    <div class="d-flex flex-column occupy align-items-center justify-content-end">
+        <span class="balance-text color-white-faded margin-bottom-point-5em">Available Balance</span>
+        <span class="balance color-white-faded">N{{balance}}</span>
+    </div>
+</header>

@@ -1,0 +1,20 @@
+<app-header [title]="'Requests'"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="countingRequests" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+        <p class="key-value-text"><span>Total Requests:</span> <span>{{totalRequests}}</span></p>
+    </section>
+
+    <section (click)="openDepositRequests()" class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Deposit Requests</span>
+        <span class="p-2 d-flex align-items-center">{{depositRequests}}  <i class="pi pi-arrow-right ml-2 pl-2"></i></span>
+    </section>
+
+    <section (click)="openWithdrawalRequests()" class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Withdrawal Requests</span>
+        <span class="p-2 d-flex align-items-center">{{withdrawalRequests}}  <i class="pi pi-arrow-right ml-2 pl-2"></i></span>
+    </section>
+</main>
+<app-footer></app-footer>

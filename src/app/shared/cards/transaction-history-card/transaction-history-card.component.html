@@ -1,0 +1,19 @@
+<div (click)="showTransactionSlip(_id!!)" class="trx d-flex align-items-center shadow justify-content-between">
+    <section class="left-details d-flex align-items-center">
+      <section class="icon-holder">
+        <i class="pi pi-window-maximize" style="font-size: 1.6rem"></i>
+      </section>
+
+      <section class="info d-flex flex-column">
+        <span>{{statement}}</span>
+        <span>{{date}}</span>
+      </section>
+    </section>
+
+    <section class="right-details">
+      <section class="info d-flex flex-column">
+        <span><span>{{amount}}</span><br><span>NGN</span></span>
+      </section>
+    </section>
+
+</div>

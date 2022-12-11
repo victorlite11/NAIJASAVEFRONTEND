@@ -1,0 +1,32 @@
+<mat-nav-list>
+    <!--
+    <div class='profile-card'>
+        <div class='header'>
+            <h2>Admin Name</h2>
+            <h4>+23489122122</h4>
+        </div>
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="" />
+    </div>
+    <mat-divider></mat-divider>
+    -->
+    <h2 matSubheader>Pages</h2>
+    <a mat-list-item routerLinkActive='list-item-active' routerLink='/'>
+        <mat-icon>dashboard</mat-icon>
+        Dashboard
+    </a>
+    <a mat-list-item routerLinkActive='list-item-active' routerLink='/contributors'>
+        <mat-icon>supervisor_account</mat-icon>
+        Contributors
+    </a>
+    <a mat-list-item routerLinkActive='list-item-active' routerLink='/requests'>
+        <mat-icon>assistant_photo</mat-icon>
+        Requests
+    </a>
+
+    <mat-divider></mat-divider>
+    <h2 matSubheader>Actions</h2>
+    <a mat-list-item routerLinkActive='list-item-active' routerLink='/announcement'>
+        <mat-icon>campaign</mat-icon>
+        Announcement
+    </a>
+</mat-nav-list>

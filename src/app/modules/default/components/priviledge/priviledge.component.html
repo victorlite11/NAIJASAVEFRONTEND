@@ -1,0 +1,61 @@
+<app-header [title]="'Privilege'"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="fetchingPrivilege || updatingPrivilege" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section *ngIf="1 > 2" class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Make Withdrawal Request</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canMakeWithdrawalRequest" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Withdraw</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canWithdraw" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+      <span class="p-2">Can Withdraw While Account is Immarture</span>
+      <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canWithdrawWhileImmature" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+      <span class="p-2">Can Make Deposit Request</span>
+      <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canMakeDepositRequest" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Deposit</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canDeposit" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Deposit Any Amount</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canDepositAnyAmount" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Change Daily Deposit</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canChangeDailyDeposit" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Credit Subordinates</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canDepositSubordinates" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Debit Subordinates</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canWithdrawSubordinates" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Reject Subordinates Requests</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canRejectSubordinatesRequests" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Can Open Account For Subordinates</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="privilege.canOpenAccountForSubordinates" (change)="updatePrivilege($event)"></mat-slide-toggle></span>
+    </section>
+</main>
+<app-footer></app-footer>

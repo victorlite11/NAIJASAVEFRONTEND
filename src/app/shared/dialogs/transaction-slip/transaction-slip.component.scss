@@ -1,0 +1,16 @@
+* {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-family: source-sans-pro-light;
+}
+
+.righted {
+    text-align: right;
+}
+
+@media print {
+    .righted {
+        display: none;
+    }
+}
+ 

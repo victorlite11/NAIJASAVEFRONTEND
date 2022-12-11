@@ -1,0 +1,32 @@
+<header class='header curved-point-5em flexed column margin-bottom-point-8em padding-point-2em align-items-start justify-content-space-between'>
+    <div class="flexed row occupy align-items-center justify-content-space-between margin-bottom-one-point-4em">
+        <span class="balance color-blue-faded bigger">{{data.title}}</span>
+        <button (click)="close()" mat-stroked-button color="warn">Close</button>
+    </div>
+</header>
+
+<div class="flexed column">
+    <div class="flexed row">
+        <input [(ngModel)]="searchKeyword"
+            placeholder="Search by name, phone or id"
+            class='occupy search-bar background-white color-black-faded border-green-point-1em curved-point-5em padding-point-8em big-green-shadow margin-point-2em' 
+            />
+        <button (click)="search()" class="search-btn background-green color-white border-green-point-1em curved-point-5em padding-point-8em big-green-shadow margin-point-2em">
+            Search
+        </button>
+    </div>
+
+    <div class="flexed align-items-center justify-content-center padding-point-8em">
+        <mat-spinner *ngIf="searching" [diameter]="20" mode="indeterminate"></mat-spinner>
+    </div>
+
+    <div *ngIf="selected.length > 0" class="flexed row align-items-end justify-content-end">
+        <button (click)="useSelected()" mat-button color="warn">Use Selected</button>
+    </div>
+
+    <div class="selectable" #card (click)="select(result._id!!, card)" *ngFor="let result of searchResult">
+        <app-subordinate-card [name]="result.basicInformation!!.name" 
+                    [phoneNumber]="result.credentials!!.phoneNumber"
+                    [status]="result.activities!!.status"></app-subordinate-card>
+    </div>
+</div>

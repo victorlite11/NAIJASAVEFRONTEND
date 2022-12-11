@@ -1,0 +1,16 @@
+.req {
+    span {
+        font-family: source-sans-pro-light;
+        color: #389FF4;
+
+        &:last-child {
+            font-family: source-sans-pro-bold;
+            color: coral;
+
+            i {
+                color: rgba(255, 127, 80, 0.452);
+                margin-left: .6em;
+            }
+        }
+    }
+}

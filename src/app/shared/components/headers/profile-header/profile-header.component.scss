@@ -1,0 +1,72 @@
+.header {
+    height: 13em;
+}
+.top-bar {
+    height: 3em;
+}
+
+ul li {
+    list-style: none;
+}
+
+.head {
+    font-size: 1.5em;
+}
+
+.hello {
+    border: 1px solid green;
+}
+
+.account-type-container {
+    border: 1px solid rgba(255, 255, 255, 0.568);
+    border-radius: .3em;
+}
+
+.balance {
+    font-size:  1.3em;
+}
+
+.user-name {
+    color: white;
+    font-size: 1.2em;
+}
+
+
+.type-text {
+    font-size: .8em;
+}
+
+.image {
+    width: 4em;
+    height: 4em;
+    border-radius: 1em;
+}
+
+.dot {
+    width: .7em;
+    height: .7em;   
+}
+
+.sub-dot {
+    @extend .dot;
+    background-color: yellowgreen;
+    border-radius: 100%;
+}
+
+.super-dot {
+    @extend .dot;
+    background-color: hsl(29, 61%, 50%);
+    border-radius: 100%;
+}
+
+.investor-dot {
+    @extend .dot;
+    background-color: rgb(50, 205, 102);
+    border-radius: 100%;
+}
+
+.contributor-dot {
+    @extend .dot;
+    background-color: rgb(130, 50, 205);
+    border-radius: 100%;
+}

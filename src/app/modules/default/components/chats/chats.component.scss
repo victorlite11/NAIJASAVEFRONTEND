@@ -1,0 +1,25 @@
+.send-board {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.send-btn {
+    border: none;
+    border-radius: .5em;
+    outline: none;
+}
+
+.text-box {
+    border: none;
+    border-radius: .5em;
+    outline: none;
+}
+
+*:not(i) {
+    font-family: source-sans-pro-light;
+}
+
+.main-btn {
+    margin-left: .5em;
+}

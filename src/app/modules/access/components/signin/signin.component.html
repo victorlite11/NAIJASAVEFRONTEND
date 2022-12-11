@@ -1,0 +1,31 @@
+<!-- alert -->
+<app-alert [message]="feedback" [type]="type" *ngIf="feedback != ''"></app-alert>
+
+<app-counts-header
+[title]="title"
+[count]="count"></app-counts-header>
+<div fxLayout="column" class="margin-point-5em padding-point-8em curved-point-5em big-grey-shadow">
+
+            <form [formGroup]="form" class="normal-form" fxLayout="column" (ngSubmit)="submit()">
+                <mat-form-field appearance="fill">
+                    <input formControlName="phoneNumber" placeholder="Phone Number*" matInput />
+                    <mat-error *ngIf="form.controls['phoneNumber'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="form.controls['phoneNumber'].errors?.minlength">Invalid phone number provided (must be 11 digits)</mat-error>
+                </mat-form-field>
+                <div class="margin-top-point-2em margin-bottom-point-2em"></div> <!-- gap -->
+                <mat-form-field appearance="fill">
+                    <input type="password" placeholder="Password*" formControlName="password" matInput />
+                    <mat-error *ngIf="form.controls['password'].errors?.required">This field is mandatory</mat-error>
+                </mat-form-field>
+                <div class="margin-top-point-2em margin-bottom-point-2em"></div> <!-- gap -->
+                <mat-checkbox formControlName="remember">Remember me</mat-checkbox>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <span>Or <a [routerLink]="['./signup']">Sign up</a></span>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <mat-spinner [diameter]="20" *ngIf="signingin" mode="indeterminate" class="away-from-right"></mat-spinner>
+                    <a (click)="navigateToResetPassword()" class="reset-link underline mgn-e-1-p-4">Reset Password</a>
+                    <button type="submit" color='primary' [disabled]="form.invalid" mat-raised-button>Login</button>
+                </div>
+            </form>
+</div>

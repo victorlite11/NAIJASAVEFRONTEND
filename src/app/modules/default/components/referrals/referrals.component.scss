@@ -1,0 +1,121 @@
+
+a.clickable {
+    font-size: .9em;
+    cursor: pointer;
+    text-align: end;
+    font-family: source-sans-pro-regular;
+    text-decoration: none;
+    color : #f55f5fd2;
+    padding: .8em;
+}
+
+#header {
+    * {
+        color: #FFFFFF;
+    }
+    border-radius: 0 0 1.3em 1.3em;
+    min-height: 27em;
+    background-color: #389FF4;
+    //background: linear-gradient(#389FF4, #9bcdf7);
+    padding: 1.5em;
+
+    section.toolbar {
+        section.contributor-details {
+            div.avatar-placeholder {
+                width: 3.5em;
+                height: 3.5em;
+                background-color: #f5f4a7;
+                border-radius: 50%;
+            }
+
+            section {
+                margin-left: .5em;
+                * {
+                    padding: 0 !important;
+                    margin-top: .9em;
+                    font-family: source-sans-pro-light;
+                }
+
+                p.contributor {
+                    span.name {
+                        font-family: source-sans-pro-bold;
+                        font-size:  1.2em;
+                    }
+
+                    span.account-type {
+                        span {
+                            &:last-child {
+                                color: rgba(255, 255, 255, 0.699);
+                            }  
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        section.aside {
+            .notifications-icon {
+                color: rgba(255, 255, 255, 0.699);
+                margin-left: .7em;
+            }
+        }
+    }
+
+    section.balance-board {
+        margin-top: 2em;
+
+        p.heading {
+            margin-bottom: 1em;
+            color: rgba(255, 255, 255, 0.699);
+            font-family: raleway-light;
+        }
+        p.detail {
+            span.amount {
+                font-size: 3em;
+                font-family: source-sans-pro-bold;
+            }
+        }
+    }
+
+
+    section.options-board {
+        margin-top: 2em;
+        .option {
+            padding: .6em;
+            width: 4em;
+            height: 4em;
+            .icon-holder {
+                background-color: #94cef480;
+                border-radius: 20%;
+                padding: 1em;
+                * {
+                    font-size: .6em;
+                }
+            }
+
+            p.description {
+                font-size: .9em;
+                color: rgba(255, 255, 255, 0.699);
+                font-family: source-sans-pro-light;
+                margin-top: .3em;
+            }
+        }
+    }
+
+    nav {
+        margin-bottom: 5em;
+        a {
+            text-decoration: none;
+            background-color: #94cef480;
+            padding: .7em;
+            margin: .2em;
+        }
+    }
+}
+
+section {
+    p {
+        font-family: source-sans-pro-light !important;
+    }
+}

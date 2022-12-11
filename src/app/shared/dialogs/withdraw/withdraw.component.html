@@ -1,0 +1,47 @@
+<mat-toolbar>
+    <span>Withdraw</span>
+</mat-toolbar> 
+<form [formGroup]="form" class="normal-form" fxLayout="column" (ngSubmit)="withdraw()">
+    <mat-form-field>
+        <input type="number" formControlName="withdraw" placeholder="Enter Amount" matInput />
+        <mat-error *ngIf="form.controls['withdraw'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" formControlName="name" placeholder="Enter Withdrawer Name" matInput />
+        <mat-error *ngIf="form.controls['withdraw'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <mat-form-field> 
+        <input type="text" formControlName="accountNumber" placeholder="Enter Account Number" matInput />
+        <mat-error *ngIf="form.controls['accountNumber'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" formControlName="accountName" placeholder="Enter Account Name" matInput />
+        <mat-error *ngIf="form.controls['accountName'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" formControlName="bankName" placeholder="Enter Bank Name" matInput />
+        <mat-error *ngIf="form.controls['bankName'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" formControlName="statement" placeholder="Statement" matInput />
+        <mat-error *ngIf="form.controls['statement'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input formControlName="date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.controls['date'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" class='options-bar' fxLayoutAlign="center center">
+        <h4>Purpose </h4>
+        <mat-radio-group formControlName="purpose">
+            <mat-radio-button value="OtherTransactions">Other Transactions</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <mat-spinner [diameter]="20" *ngIf="withdrawing" mode="indeterminate"></mat-spinner>
+        <button (click)="close()" color='warn' mat-raised-button>Cancel</button>
+        <button type="submit" color='primary' [disabled]="form.invalid" mat-raised-button>Withdraw</button>
+    </div>
+</form> 

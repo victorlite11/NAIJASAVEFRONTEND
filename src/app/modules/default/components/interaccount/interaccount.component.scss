@@ -1,0 +1,26 @@
+.balance {
+    font-family: source-sans-pro-light;
+    padding: .5em;
+    span {
+        &:first-child {
+            color: rgba(58, 58, 58, 0.582);
+        }
+
+        &:last-child {
+            font-family: source-sans-pro-bold;
+            color: #f55f5f;
+            font-size: 1.4em;
+            margin-left: .4em;
+        }
+    }
+}
+
+.selectedUser {
+    font-family: raleway-bold;
+    color: #f55f5f;
+    font-size: 1.3em; 
+}
+
+.main-btn:last-child {
+    background-color: #f55f5f;
+}

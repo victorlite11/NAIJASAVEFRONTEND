@@ -1,0 +1,121 @@
+<header id="header">
+  <!-- Toolbar -->
+  <section class="toolbar d-flex align-items-center justify-content-start">
+    <i class="pi pi-arrow-left notifications-icon" style="font-size: 1.1rem" (click)="navigateBack()"></i>
+    <span class="m-2"></span>
+    <!-- Contributor Details-->
+    <section class="contributor-details d-flex align-items-center justify-content-start">
+      <!-- avatar -->
+      <div class="avatar-placeholder shadow mr-2"></div>
+
+      <!-- Contributor details -->
+      <section class="d-flex align-self-center justify-content-center">
+        <p class="contributor">
+          <span class="name pb-1">{{contributor.basicInformation!!.name}}</span><br>
+          <span class="account-type">
+            <span class="type-text color-white-faded">{{accountType}}</span>
+          </span>
+        </p>
+      </section>
+    </section>
+
+    <section class="aside d-flex">
+      <!-- Notifications -->
+      <!-- <i class="pi pi-bell notifications-icon" style="font-size: 1.1rem"></i> -->
+    </section>
+
+
+  </section>
+
+  <!-- balance board -->
+  <section class="balance-board d-flex flex-column align-items-center justify-content-center">
+    <p class="heading">Balance</p>
+    <p class="detail"><span class="amount">{{contributor.account!!.balance}}</span><span class="currency">NGN</span></p>
+  </section>
+
+  <!-- cummulatives board -->
+  <section class="cummulatives-board p-2 d-flex align-items-center justify-content-center shadow m-1 rounded">
+    <section class="cummulative">
+      <span>Total Deposit: </span>
+      <span>N{{accountSummary.totalDeposit}}</span>
+    </section>
+    <span class="m-2"></span>
+    <section class="cummulative">
+      <span>Total Withdrawn: </span>
+      <span>N{{accountSummary.totalWithdrawn}}</span>
+    </section>
+  </section>
+
+  <!-- Options board -->
+  <section class="options-board d-flex align-items-center justify-content-center">
+
+    <!-- Deposit -->
+    <div (click)="navigateToInteraccount()" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-send" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description" (click)="deposit()">Deposit</p>
+    </div>
+
+    <!-- Withdraw -->
+    <div (click)="navigateToInteraccount()" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-money-bill" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">Withdraw</p>
+    </div>
+
+    <!-- Transactions -->
+    <div (click)="navigateToTransactionsHistory()" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-external-link" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">Transactions</p>
+    </div>
+
+    <!-- More -->
+    <div data-bs-toggle="collapse" data-bs-target="#navigation" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-bars" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">More</p>
+    </div>
+
+  </section>
+
+  <!-- navigation board -->
+  <section class="collapse" id="navigation">
+    <nav class="d-flex flex-column p-2">
+
+      <a  (click)="navigateToIdentity()" class="nav-item shadow rounded">Identity</a>
+      <a  (click)="navigateToPrivilege()" class="nav-item shadow rounded">Privilege</a>
+      <a  *ngIf="contributor.identity!!.isSubContributor || contributor.identity!!.isSuperContributor" (click)="navigateToSubordinatesPortal()" class="nav-item shadow rounded">Subordinates</a>
+
+      <a  (click)="navigateToPersonalData()" class="nav-item shadow rounded">Personal Data</a>
+
+    </nav>
+  </section>
+
+</header>
+
+<main class="body shadow">
+
+  <section class="mt-5" *ngIf="contributor.identity!!.isContributor || contributor.identity!!.isInvestor">
+    <p class="title">Deposit Ticks</p>
+    <!-- tick -->
+    <div class="op d-flex flex-column padding-point-5em curved-point-5em shadow">
+      <mat-spinner *ngIf="fetchingContributor" [diameter]="20" mode="indeterminate"></mat-spinner>
+      <div *ngIf="!fetchingContributor" class='control-board bg-2' fxLayout="row" fxLayoutAlign="space-around center">
+        <span (click)="moveBack()">
+          <i class="pi pi-arrow-left" style="font-size: 1.1rem"></i>
+        </span>
+        <span fxFlex="70">{{ tickCalendar.monthNames[tickCalendar.month - 1] }}, {{ tickCalendar.year }}</span>
+        <span (click)="moveForward()">
+          <i class="pi pi-arrow-right righted" style="font-size: 1.1rem"></i>
+        </span>
+      </div>
+      <div class='tick-host-container'></div>
+    </div> 
+  </section>
+</main>
+<app-footer></app-footer>

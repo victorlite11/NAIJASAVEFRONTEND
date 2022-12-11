@@ -1,0 +1,76 @@
+<header id="header">
+  <!-- Toolbar -->
+  <section class="toolbar d-flex align-items-center justify-content-between">
+      <!-- Contributor Details-->
+      <section class="contributor-details d-flex align-items-center justify-content-start">
+
+        <!-- back arrow -->
+        <i class="pi pi-arrow-left notifications-icon" style="font-size: 1.1rem" (click)="moveBack()"></i>
+  
+        <!-- Contributor details -->
+        <section class="d-flex align-self-center justify-content-center">
+          <p class="contributor">
+            <span class="title pb-1">Referrals</span>
+          </p>
+        </section>
+      </section>
+    
+    <section class="aside d-flex">
+      <!-- Notifications -->
+      <i class="pi pi-ellipsis-v notifications-icon" style="font-size: 1.1rem"></i>
+    </section>
+
+
+  </section>
+
+  <!-- commission board -->
+  <section class="balance-board d-flex flex-column align-items-center justify-content-center">
+    <p class="heading">Referrals Commissions</p>
+    <p class="detail"><span class="amount">{{referralData.balance}}</span><span class="currency">NGN</span></p>
+  </section>
+
+  <!-- Options board -->
+  <section class="options-board d-flex align-items-center justify-content-center">
+
+    <!-- Withdraw -->
+    <div *ngIf="!isSubordinate" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-money-bill" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">Withdraw</p>
+    </div>
+
+
+  </section>
+
+</header>
+
+<main class="body shadow pull-up-5">
+
+  <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+    <span class="p-2">Referral code</span>
+    <span class="p-2 d-flex align-items-center">{{referralData.code}}</span>
+  </section>
+
+  <section  class="req d-flex flex-column align-items-start justify-content-start shadow-sm p-2">
+    <span class="p-2">Referral Link</span>
+    <span class="p-2 d-flex align-items-center justify-content-end text-right">{{invitationLink}}</span>
+  </section>
+
+  <section  class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+    <span class="p-2">Total Referrals</span>
+    <span class="p-2 d-flex align-items-center">{{referralData.referred.length}}</span>
+  </section>
+
+  <section class="mt-2">
+    <p>Referred</p>
+    <div *ngFor="let rfd of referralData.referred">
+      <app-subordinate-card [name]="rfd.name" 
+                  [phoneNumber]="rfd.phoneNumber"
+                  [status]="rfd.status"></app-subordinate-card>
+    </div>
+  </section>
+
+
+</main>
+<app-footer></app-footer>

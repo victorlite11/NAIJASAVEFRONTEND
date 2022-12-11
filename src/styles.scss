@@ -1,0 +1,314 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "./assets/css/byteangle/bytangle.scss";
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/primeicons/primeicons.css";
+
+@import "../node_modules/primeng/resources/themes/nova-accent/theme.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// source sans pro font family
+@font-face {
+    font-family: source-sans-pro-black;
+    src: url('./assets/fonts/source-sans-pro/SourceSansPro-Black.otf');
+}
+
+@font-face {
+    font-family: source-sans-pro-bold;
+    src: url('./assets/fonts/source-sans-pro/SourceSansPro-Semibold.otf');
+}
+
+@font-face {
+    font-family: source-sans-pro-regular;
+    src: url('./assets/fonts/source-sans-pro/SourceSansPro-Regular.otf');
+}
+
+@font-face {
+    font-family: source-sans-pro-light;
+    src: url('./assets/fonts/source-sans-pro/SourceSansPro-Light.otf');
+}
+
+@font-face {
+    font-family: source-sans-pro-light-italics;
+    src: url('./assets/fonts/source-sans-pro/SourceSansPro-LightIt.otf');
+}
+
+
+// raleway font family
+@font-face {
+    font-family: raleway-black;
+    src: url('./assets/fonts/static/Raleway-Black.ttf');
+}
+
+@font-face {
+    font-family: raleway-bold;
+    src: url('./assets/fonts/static/Raleway-Bold.ttf');
+}
+
+@font-face {
+    font-family: raleway-extra-bold;
+    src: url('./assets/fonts/static/Raleway-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: raleway-light;
+    src: url('./assets/fonts/static/Raleway-Light.ttf');
+}
+
+@font-face {
+    font-family: raleway-light-italics;
+    src: url('./assets/fonts/static/Raleway-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: raleway-regular;
+    src: url('./assets/fonts/static/Raleway-Regular.ttf');
+}
+
+// color palletes
+.danger-text {
+    color: #f55f5f !important;
+}
+
+.primary-text {
+    color: #00923F !important;
+}
+
+// body styles
+main.body {
+    background-color: #f5fafdd7;
+    padding: .8em;
+    border-radius: 1.3em 1.3em 0 0;
+    min-height: 50em;
+
+    section.toolbar {
+        .key-value-text {
+            font-family: source-sans-pro-light;
+            padding: .5em;
+            span {
+                &:first-child {
+                    color: rgba(58, 58, 58, 0.582);
+                }
+        
+                &:last-child {
+                    font-family: source-sans-pro-bold;
+                    color: #f55f5f;
+                    font-size: 1.4em;
+                    margin-left: .4em;
+                }
+            }
+        }
+    }
+
+    section {
+
+        p.title {
+            font-family: source-sans-pro-bold;
+            font-size:  1.4em;
+            color: #f55f5fd2;
+            margin-left: .4em;
+
+            span.btn {
+                font-family: .9em;
+                font-family: source-sans-pro-light;
+                color: #00923F;
+            }
+        }
+    }
+}
+
+// form field designs
+section.form-field {
+    background-color: white;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    * {
+        font-family: raleway-regular;
+        //width: 100%;
+        padding: .1em;
+    }
+
+    label {
+        font-family: source-sans-pro-black !important;
+        color: rgba(0, 0, 0, 0.568);
+    }
+
+    input {
+        border: none;
+        
+        &::placeholder {
+            font-family: source-sans-pro-light;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    a.clickable {
+        font-size: .8em;
+        cursor: pointer;
+        text-align: end;
+        text-decoration: none;
+        color : #00923F;
+
+        &::selection {
+            background-color: transparent;
+        }
+    }
+
+    .instruction {
+        font-family: raleway-light;
+    }
+}
+
+.req {
+    &::selection {
+        background-color: transparent;
+    }
+    span {
+        font-family: source-sans-pro-light;
+        color: #00923F;
+
+        &:last-child {
+            font-family: source-sans-pro-bold;
+            color: coral;
+
+            i {
+                color: rgba(255, 127, 80, 0.452);
+                margin-left: .6em;
+            }
+        }
+    }
+}
+
+.main-btn {
+    background-color: #00923F;
+    padding: .6em 1em;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    align-self: flex-end;
+    justify-self: flex-end;
+    font-family: source-sans-pro-light;
+    align-self: flex-end;
+    justify-self: flex-end;
+
+    .pi-arrow-right {
+        padding-left: 1.1em;
+        color: rgba(255, 255, 255, 0.644);
+    }
+}
+
+span.clickable {
+    cursor: pointer;
+    text-align: end;
+    text-decoration: none;
+    color : #00923F;
+    font-family: source-sans-pro-black;
+    &::selection {
+        background-color: transparent;
+    }
+}
+
+// pull ups
+.pull-up-5 {
+    margin-top: -4.2em;
+}
+
+.pull-up-4 {
+    margin-top: -3.2em;
+}
+
+.pull-up-3 {
+    margin-top: -2.2em;
+}
+
+.pull-up-2 {
+    margin-top: -1.2em;
+}
+
+.pull-up-1 {
+    margin-top: -.2em;
+}
+
+
+// obsolete styles that should be removed
+
+
+$mat-myapp-primary: (
+    50: #e8eaf6,
+    100: #c5cae9,
+    200: #9fa8da,
+    300: #7986cb,
+    400: #5c6bc0,
+    500: #3f51b5,
+    600: #3949ab,
+    700: #303f9f,
+    800: #283593,
+    900: #1a237e,
+    A100: #8c9eff,
+    A200: #536dfe,
+    A400: #3d5afe,
+    A700: #304ffe,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$mat-myapp-accent: (
+    50 : #fffaed,
+    100 : #fff4d1,
+    200 : #ffecb3,
+    300 : #ffe494,
+    400 : #ffdf7d,
+    500 : #ffd966,
+    600 : #ffd55e,
+    700 : #ffcf53,
+    800 : #ffca49,
+    900 : #ffc038,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fff5e1,
+    A700 : #ffedc8,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$primary: mat-palette($mat-myapp-primary);
+$accent: mat-palette($mat-myapp-accent);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);

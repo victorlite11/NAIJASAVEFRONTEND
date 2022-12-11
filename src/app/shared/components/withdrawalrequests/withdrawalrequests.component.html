@@ -1,0 +1,61 @@
+<!-- alert -->
+<app-alert [message]="feedback" [type]="type" *ngIf="feedback != ''"></app-alert>
+
+<app-header [title]="'Withdrawal Requests'"></app-header>
+
+<main class="body shadow pull-up-3">
+  <mat-spinner *ngIf="fetchingRequests || approving" fxLayoutAlign="center center" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+        <p class="key-value-text"><span>Total Requests:</span> <span>{{withdrawalRequests.length}}</span></p>
+    </section>
+
+    <div class="shadow-sm mb-3" *ngFor="let request of withdrawalRequests">
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Name</span>
+        <span class="p-2 d-flex align-items-center">{{request.withdrawerName}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Amount</span>
+        <span class="p-2 d-flex align-items-center">N{{request.amount}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Date</span>
+        <span class="p-2 d-flex align-items-center">{{request.date}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Purpose</span>
+        <span class="p-2 d-flex align-items-center">{{request.purpose}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Account Number</span>
+        <span class="p-2 d-flex align-items-center">{{request.bankDetails.accountNumber}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Account Name</span>
+        <span class="p-2 d-flex align-items-center">{{request.bankDetails.name}}</span>
+      </section>
+
+      <section class="req d-flex align-items-center justify-content-between p-1">
+        <span class="p-2">Bank Name</span>
+        <span class="p-2 d-flex align-items-center">{{request.bankDetails.bankName}}</span>
+      </section>
+
+      <section class="d-flex align-items-center justify-content-end">
+        <a class="clickable p-1 justify-self-end align-self-end text-right" (click)="approve(request.requester_id)">Approve</a>
+        <a class="clickable coral p-1 justify-self-end align-self-end text-right" (click)="reject(request._id!!)">Reject</a>
+        <a class="clickable p-1 justify-self-end align-self-end text-right" (click)="forwardToOverseer(request._id!!)">Forward to Overseer</a>
+      </section>
+
+      <!-- <mat-radio-group class="p-1" [(ngModel)]="request.send_sms_notification">
+        <mat-radio-button value="true">Send SMS Notification</mat-radio-button>
+      </mat-radio-group> -->
+    </div>
+
+</main>
+<app-footer></app-footer>

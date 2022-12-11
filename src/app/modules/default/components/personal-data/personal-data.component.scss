@@ -1,0 +1,25 @@
+.under {
+    * {
+        margin: .3em;
+        border-radius: 10px;
+        color: rgb(246, 234, 247);
+    }
+    //background-color: rgb(219, 106, 31);
+    padding: .5em;
+    border-radius: 15px;
+    margin-top: .6em;
+    margin-bottom: .6em;
+}
+.bg-3  {
+    background-color: rgb(31, 113, 219);
+}
+.option {
+    margin: .4em;
+}
+
+div.shadow-sm {
+    p {
+        padding: .5em;
+        color: rgba(0, 0, 0, 0.685);
+    }
+}

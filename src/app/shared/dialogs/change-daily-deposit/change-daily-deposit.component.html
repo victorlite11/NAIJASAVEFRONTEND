@@ -1,0 +1,13 @@
+<mat-toolbar>
+    <span>Change Daily Deposit</span>
+</mat-toolbar> 
+<form [formGroup]="form" class="normal-form" fxLayout="column" (ngSubmit)="changeDailyDeposit()">
+    <mat-form-field>
+        <input type="number" formControlName="dailyDeposit" placeholder="Enter Account Name" matInput />
+        <mat-error *ngIf="form.controls['dailyDeposit'].errors?.required">This field is mandatory</mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <button (click)="close()" color='warn' mat-raised-button>Cancel</button>
+        <button type="submit" color='primary' [disabled]="form.invalid" mat-raised-button>Update</button>
+    </div>
+</form> 

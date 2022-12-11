@@ -1,0 +1,101 @@
+<!-- alert -->
+<app-alert [message]="feedback" [type]="type" *ngIf="feedback != ''"></app-alert>
+
+<app-header [title]="'Interaccount'"></app-header>
+
+<main class="body shadow pull-up-3">
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+        <p class="balance"><span>Balance:</span> <span>N{{availableBalance}}</span></p>
+    </section>
+
+    <mat-spinner [diameter]="20" *ngIf="usersLoading" mode="indeterminate" class="align-self-center justify-self-center"></mat-spinner>
+
+    <!-- Selected contributor -->
+    <section class="form-field d-flex shadow-sm flex-column p-2">
+      <label class="label">Selected Contributor</label>
+
+      <section class="input-container d-flex align-items-center">
+        <p class="selectedUser">{{selectedUser}}</p>
+      </section>
+
+      <a class="clickable border rounded p-1 justify-self-end align-self-end text-right" (click)="openSearchPortal()">Select Contributor</a>
+    </section>
+
+    <form [formGroup]="form" class="forms-input-container mt-4">
+
+      <!-- Amount -->
+      <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Amount</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="enteredAmount" type="number" class="input flex-grow-1" placeholder="How much?" />
+          </section>
+
+          <a class="clickable justify-self-end align-self-end text-right">NGN</a>
+      </section>
+
+      <!-- Statement -->
+      <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Statement</label>
+
+          <section class="input-container d-flex align-items-center">
+             <input formControlName="statement" type="text" class="input flex-grow-1" placeholder="Ex: My daily deposit" required />
+          </section>
+
+          <a class="clickable justify-self-end align-self-end text-right">Should be simple & descriptive</a>
+      </section>
+
+      <!-- Date -->
+      <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Date</label>
+
+          <section class="input-container d-flex align-items-center">
+            <mat-form-field class="w-100 no-border">
+              <input (change)="reconstructDate()" formControlName="transactionDate" placeholder="Ex: 2/5/2021" matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </section>
+
+          <a class="clickable justify-self-end align-self-end text-right">{{readableDate}}</a>
+      </section>
+
+      <!-- Purpose -->
+      <section class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">Purpose</label>
+
+          <section class="input-container d-flex align-items-center">
+              <mat-radio-group formControlName="purpose">
+                  <mat-radio-button value="DailySavings">Daily Savings</mat-radio-button>
+                  <mat-radio-button value="OtherTransactions">Other Transactions</mat-radio-button>
+              </mat-radio-group>
+          </section>
+      </section>
+
+      <!-- SMS Alert -->
+      <section *ngIf="contributor.privilege!!.canUseSMS" class="form-field d-flex shadow-sm flex-column p-2">
+          <label class="label">SMS Notification</label>
+
+          <section class="input-container d-flex align-items-center">
+            <mat-radio-group formControlName="sendSmsNotification">
+              <mat-radio-button value="true">Send Notification</mat-radio-button>
+            </mat-radio-group>
+          </section>
+      </section>
+  </form>
+
+  <mat-spinner [diameter]="20" *ngIf="performingTransaction" mode="indeterminate" class="align-self-center justify-self-center"></mat-spinner>
+
+
+  <section class="d-flex align-items-center justify-content-end">
+      <!-- credit button -->
+      <button [disabled]="form.invalid" class="main-btn d-flex align-items-center justify-content-center align-self-end justify-self-end shadow mt-3" (click)="credit()">Credit</button>
+      <span class="m-2"></span>
+      <!-- debit button -->
+      <button [disabled]="form.invalid" class="main-btn d-flex align-items-center justify-content-center align-self-end justify-self-end shadow mt-3" (click)="debit()">Debit</button>
+
+  </section>
+
+</main>
+<app-footer></app-footer>

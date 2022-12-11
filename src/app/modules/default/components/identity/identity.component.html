@@ -1,0 +1,31 @@
+<app-header [title]="'Identity'"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="fetchingIdentity || updatingIdentity" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+      <p class="key-value-text"><span>Identity:</span> <span>{{accountType}}</span></p>
+  </section>
+
+
+    <section *ngIf="1 > 2" class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Super Contributors</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="identity.isSuperContributor" (change)="updateIdentity('super')"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+        <span class="p-2">Sub Contributor</span>
+        <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="identity.isSubContributor" (change)="updateIdentity('sub')"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+      <span class="p-2">Investor</span>
+      <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="identity.isInvestor" (change)="updateIdentity('investor')"></mat-slide-toggle></span>
+    </section>
+
+    <section class="req d-flex align-items-center justify-content-between shadow-sm p-2">
+      <span class="p-2">Contributor</span>
+      <span class="p-2 d-flex align-items-center"><mat-slide-toggle [(ngModel)]="identity.isContributor" (change)="updateIdentity('contributor')"></mat-slide-toggle></span>
+    </section>
+</main>
+<app-footer></app-footer>

@@ -1,0 +1,22 @@
+<app-header [title]="'All Conversations'"></app-header>
+
+<main class="body shadow pull-up-3">
+    <mat-spinner *ngIf="fetchingChats" [diameter]="20" mode="indeterminate"></mat-spinner>
+
+    <section class="toolbar d-flex align-items-center justify-content-end">
+      <p class="key-value-text"><span>Total Messages:</span> <span>{{concernedChats.totalUnreadMessages}}</span></p>
+  </section>
+
+  <section class="toolbar d-flex align-items-center">
+    <a class="clickable p-2 rounded shadow-sm" (click)="openSearchPortal()">Start conversation</a>
+  </section>
+
+    <section>
+        <div *ngFor="let chat of concernedChats.concernedChats">
+            <app-chats-card [name]="chat.name" 
+                            [for]="chat.for"
+                            [totalUnreadMessages]="chat.totalUnreadMessages"></app-chats-card>
+        </div>
+  </section>
+</main>
+<app-footer></app-footer>

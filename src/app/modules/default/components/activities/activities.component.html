@@ -1,0 +1,14 @@
+<app-counts-header
+[title]="title"
+[name]="name"
+[count]="activities.actions.length"
+></app-counts-header>
+
+<div>
+    <div class="margin-point-5em padding-point-8em curved-point-5em big-grey-shadow" *ngFor="let action of activities.actions">
+        <div class="flexed column occupy-90-percent align-items-start justify-content-start">
+            <span>{{action.description}}</span>
+            <span class="align-self-end color-black-faded date">{{action.date}}</span>
+        </div>
+    </div>
+</div>

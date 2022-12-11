@@ -1,0 +1,61 @@
+<mat-toolbar>
+    <span>Transaction Slip</span>
+</mat-toolbar>
+<div class="flexed align-items-center justify-content-center padding-point-8em">
+    <mat-spinner *ngIf="fetchingTransactionDetail" [diameter]="20" mode="indeterminate"></mat-spinner>
+</div>
+<div *ngIf="!fetchingTransactionDetail" fxLayout="column" class="slip">
+    <!-- transaction id -->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Transaction ID:</span>
+        <span class="righted">{{ data.transaction_id }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction type-->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Purpose:</span>
+        <span class="righted">{{ transactionDetail.purpose }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction date-->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Date:</span>
+        <span class="righted">{{ transactionDetail.date }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction tIME -->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Time:</span>
+        <span class="righted">{{ transactionDetail.time }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction Statement -->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Statement:</span>
+        <span class="righted">{{ transactionDetail.statement }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction id -->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Amount:</span>
+        <span class="righted">N{{ transactionDetail.amount }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction Statement -->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Payer:</span>
+        <span class="righted">{{ transactionDetail.payer }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction Number -->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Receiver:</span>
+        <span class="righted">{{ transactionDetail.receiver }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <!-- transaction Statement -->
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <span>Approved by:</span> <!-- from -->
+        <span class="righted">NaijaSave</span>
+    </div>
+</div>

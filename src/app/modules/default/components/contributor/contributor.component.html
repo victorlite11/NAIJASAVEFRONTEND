@@ -1,0 +1,263 @@
+<header id="header">
+  <!-- Toolbar -->
+  <section class="toolbar d-flex align-items-center justify-content-between">
+    <!-- Contributor Details-->
+    <section class="contributor-details d-flex align-items-center justify-content-start">
+      <!-- avatar -->
+      <div class="avatar-placeholder shadow mr-2"></div>
+
+      <!-- Contributor details -->
+      <section class="d-flex align-self-center justify-content-center">
+        <p class="contributor">
+          <span class="name pb-1">{{contributor.basicInformation!!.name}}</span><br>
+          <span class="account-type">
+            <span class="type-text color-white-faded">{{accountType}}</span>
+          </span>
+        </p>
+      </section>
+    </section>
+
+    <section class="aside d-flex">
+      <!-- Notifications -->
+      <i (click)="openAnnouncements()" class="pi pi-bell notifications-icon" style="font-size: 1.1rem"></i>
+      <!-- <i class="pi pi-ellipsis-v notifications-icon" style="font-size: 1.1rem"></i> -->
+      <!-- <p-menu #menu [model]="menuItems" [popup]="true"></p-menu> -->
+    </section>
+
+
+  </section>
+
+  <!-- balance board -->
+  <section class="balance-board d-flex flex-column align-items-center justify-content-center">
+    <p class="heading">Balance</p>
+    <p class="detail"><span class="amount">{{contributor.account!!.balance}}</span><span class="currency">NGN</span></p>
+  </section>
+
+  <!-- cummulative board -->
+  <section class="cummulatives-board p-2 d-flex align-items-center justify-content-center shadow m-1 rounded">
+    <section class="cummulative">
+      <span>Total Deposit: </span>
+      <span>N{{accountSummary.totalDeposit}}</span>
+    </section>
+    <span class="m-2"></span>
+    <section class="cummulative">
+      <span>Total Withdrawn: </span>
+      <span>N{{accountSummary.totalWithdrawn}}</span>
+    </section>
+  </section>
+
+  <!-- Options board -->
+  <section class="options-board d-flex align-items-center justify-content-center">
+
+    <!-- Deposit -->
+    <div (click)="navigateToDeposit()" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-send" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">Deposit</p>
+    </div>
+
+    <!-- Withdraw -->
+    <div (click)="navigateToWithdrawSavings()" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-money-bill" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">Withdraw</p>
+    </div>
+
+    <!-- Transactions -->
+    <div (click)="navigateToTransactionsHistory()" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-external-link" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">Transactions</p>
+    </div>
+
+    <!-- More -->
+    <div (click)="toggleMoreLess()" data-bs-toggle="collapse" data-bs-target="#navigation" class="option d-flex align-items-center justify-content-center flex-column">
+      <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+        <i class="pi pi-bars" style="font-size: 1.1rem"></i>
+      </div>
+      <p class="description">{{moreless}}</p>
+    </div>
+
+  </section>
+
+  <div class="collapse mb-5" id="navigation">
+    <!-- navigation board -->
+    <section class="options-board d-flex flex-wrap align-items-center justify-content-center">
+
+      <!-- Interaccount -->
+      <div *ngIf="contributor.identity!!.isSuperContributor || contributor.identity!!.isSubContributor" (click)="navigateToInteraccountComponent()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-money-bill" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Interaccount</p>
+      </div>
+
+      <!-- Requests -->
+      <div *ngIf="contributor.identity!!.isSuperContributor || contributor.identity!!.isSubContributor" (click)="navigateToRequests()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-ticket" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Requests</p>
+      </div>
+
+      <!-- Subordinates -->
+      <div *ngIf="contributor.identity!!.isSuperContributor || contributor.identity!!.isSubContributor" (click)="navigateToCommissionPortal()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-money-bill" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Commission</p>
+      </div>
+
+      <!-- Airtime topup -->
+      <div (click)="navigateToComingSoon('Airtime Topup')" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-mobile" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Airtime</p>
+      </div>
+
+      <!-- Bills topup -->
+      <div (click)="navigateToComingSoon('Bills Payment')" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-wallet" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Bills</p>
+      </div>
+
+      <!-- earn money -->
+      <div (click)="navigateToComingSoon('Earn Money')" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-money-bill" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Earn</p>
+      </div>
+
+      <!-- sports and gaming -->
+      <div (click)="navigateToComingSoon('Sports and Gaming')" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-dollar" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Gaming</p>
+      </div>
+
+      <!-- Travels -->
+      <div (click)="navigateToComingSoon('Travel and Leisure')" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-globe" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Travels</p>
+      </div>
+
+      <!-- Subordinates -->
+      <div *ngIf="contributor.identity!!.isSuperContributor || contributor.identity!!.isSubContributor" (click)="navigateToSubordinatesPortal()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-users" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Subordinates</p>
+      </div>
+
+      <!-- Chat -->
+      <div (click)="navigateToChats()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-comment" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Chat</p>
+      </div>
+
+      <!-- Conversations -->
+      <div *ngIf="contributor.identity!!.isSuperContributor || contributor.identity!!.isSubContributor" (click)="navigateToChatsPortal()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-comments" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Conversations</p>
+      </div>
+
+      <!-- Referrals -->
+      <div (click)="navigateToReferrals()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-users" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Referrals</p>
+      </div>
+
+      <!-- Personal Data -->
+      <div (click)="navigateToPersonalData()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-user" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Profile</p>
+      </div>
+
+      <!-- Naijasave Near Me -->
+      <div (click)="navigateToComingSoon('Naijasave Near Me')" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-map-marker" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">NearMe</p>
+      </div>
+
+      <!-- Sign out -->
+      <div (click)="signOut()" class="option d-flex align-items-center justify-content-center flex-column">
+        <div class="icon-holder d-flex align-items-center justify-content-center shadow-sm">
+          <i class="pi pi-sign-out" style="font-size: 1.1rem"></i>
+        </div>
+        <p class="description">Signout</p>
+      </div>
+      
+    </section>
+  </div>
+
+</header>
+
+<main class="body shadow pull-up-5">
+
+  <section *ngIf="contributor.identity!!.isContributor || contributor.identity!!.isInvestor" class="mt-1">
+    <p class="title">Deposit Ticks</p>
+    <!-- tick -->
+    <div class="op d-flex flex-column rounded shadow-sm">
+      <mat-spinner *ngIf="fetchingContributor" [diameter]="20" mode="indeterminate"></mat-spinner>
+      <div *ngIf="!fetchingContributor" class='control-board bg-2' fxLayout="row" fxLayoutAlign="space-around center">
+        <span (click)="moveBack()">
+          <i class="pi pi-arrow-left" style="font-size: 1.1rem"></i>
+        </span>
+        <span fxFlex="70">{{ tickCalendar.monthNames[tickCalendar.month - 1] }}, {{ tickCalendar.year }}</span>
+        <span (click)="moveForward()">
+          <i class="pi pi-arrow-right righted" style="font-size: 1.1rem"></i>
+        </span>
+      </div>
+      <div class='tick-host-container'></div>
+    </div> 
+  </section>
+
+  <section class="mt-5">
+    <p class="title d-flex align-items-center justify-content-between">Latest Transactions <span (click)="navigateToTransactionsHistory()" class="btn">Show all</span></p>
+    <section class="latest-trxs">
+
+      <section *ngIf="transactionsHistory.length == 0" class="d-flex p-2 align-items-center justify-content-center">
+        <span class="danger-text">No transactions</span>
+      </section>
+
+      <table *ngIf="transactionsHistory.length > 0" class="mt-3 table table-striped table-borderless">
+        <thead class="thead-dark rounded">
+          <tr class="rounded">
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Statement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr (click)="showTransactionSlip(h._id!!)" class="rounded" *ngFor="let h of transactionsHistory">
+            <td>{{h.date}}</td>
+            <td>{{h.amount}}</td>
+            <td>{{h.statement}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+  </section>
+</main>
+<app-footer></app-footer>
